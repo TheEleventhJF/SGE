@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Archivo de prueba</title>
+</head>
+<body>
+
+    <p id="texto">Introduce tu nombre</p><input type="text" id="nombre">
+    <br>
+    <input type="checkbox" id="negrita" name="negrita" value="negrita">
+    <label for="negrita"> negrita</label><br>
+    <input type="checkbox" id="cursiva" name="cursiva" value="cursiva">
+    <label for="cursiva"> cursiva</label><br>
+    <input type="checkbox" id="tachado" name="tachado" value="tachado">
+    <label for="tachado"> tachado</label><br>
+    <input type="button" value="Enviar" id="boton">
+    <!--<select name="colores" id="selec">
+        <option value="Rojo">Rojo</option>
+        <option value="Azul">Azul</option>
+        <option value="Verde">Verde</option>
+    </select>-->
+
+    <script>
+        /*marca=window.prompt("Escribe la marca")
+        marca=="ford" ? modelo=window.prompt("Escribe el modelo") : document.write("No hay descuentos")
+        modelo=="fiesta" ? descuento="El descuento es del 5%" : descuento="No hay descuentos"
+        modelo=="focus" ? descuento="El descuento es del 10%" : descuento="No hay descuentos"
+        document.write(descuento)*/
+        //--------------------------------------------------------------------------------------------------------------------
+        /*dia=window.prompt("Introduce el dia").toLowerCase()
+        switch (dia) {
+            case 'lunes' || 'martes' || 'miercoles' || 'jueves' || 'viernes':
+                document.write("No es fin de semana")
+                break
+            case 'sabado' || 'domingo':
+                document.write("Es fin de semana")
+                break
+        }*/
+        //--------------------------------------------------------------------------------------------------------------------
+        /*media=0
+        for (let i = 0; i < 6; i++) {
+            asignatura=window.prompt("Introduce la asignatura")
+            document.write(asignatura+"\t");
+            nota=window.prompt("Introduce una nota")
+            document.writeln(nota)
+            nota>=9 && nota<=10 ? document.writeln("Sobresaliente") : nota>=7 && nota<=8 ? document.writeln("Notable") : nota>=5 && nota<=7 ? document.writeln("Aprobado") : nota<5 ? document.writeln("Suspenso") : document.writeln("La nota no es valida")
+            media+=parseInt(nota)
+            document.write("<br>")
+        }
+        media=parseInt(media)
+        document.write("La media es: " + media/6)*/
+        //--------------------------------------------------------------------------------------------------------------------
+        /*var notas = new Array()
+        notas["modulo"]
+        notas["nota"]
+        for (let i = 0; i < 6; i++) {
+            asignatura=window.prompt("Introduce la asignatura")
+            do{
+                nota=window.prompt("Introduce una nota")
+            } while (nota<1 || nota>10)
+            notas[i]={"modulo":asignatura,"nota":nota}
+        }
+
+        for (var id in notas) {
+            document.write(notas[id].modulo+" "+notas[id].nota+"<br>")
+        }*/
+        //--------------------------------------------------------------------------------------------------------------------
+        /*var notas = new Array()
+        var nombre=window.prompt("Introduce el nombre")
+        var apellido=window.prompt("Introduce el apellido")
+        for (let i = 0; i < 6; i++) {
+            notas[i]=window.prompt("Introduce la nota")
+        }
+        var alumno={
+            nombre:nombre,
+            apellido:apellido,
+            nota:notas
+        }
+        document.write("Alumno: "+alumno.nombre+" "+alumno.apellido+"<br>Notas: "+alumno.nota)*/
+        //--------------------------------------------------------------------------------------------------------------------
+        /*for (let i = 0; i < 5; i++) {
+            mensaje=window.prompt("Introduce un mensaje")
+            console.log(mensaje.replace("bomba", "*****"))
+        }*/
+        //--------------------------------------------------------------------------------------------------------------------
+        /*document.getElementById('boton').addEventListener('click', llamar, false)
+        function llamar() {
+            const color=document.getElementById('selec').value
+            document.getElementById('texto').innerText=document.getElementById('nombre').value
+            const estilo=document.getElementById('texto').style
+            if (color=="Rojo") estilo.color="red"
+            if (color=="Azul") estilo.color="blue"
+            if (color=="Verde") estilo.color="green"
+        }*/
+        //--------------------------------------------------------------------------------------------------------------------
+        document.getElementById('boton').addEventListener('click', llamar, false)
+        function llamar() {
+            if (getElementById('negrita'))
+        }
+    </script>
+</body>
+</html>
