@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <!--Nombre: <input type="text" name="" id="nombre"> <br>
+        Edad: <input type="text" name="" id="edadAhora"> <br>
+        Equipo de futbol <input type="text" name="" id="nEquipo"> <br>
+        <input type="button" value="Saludo" id="saludo"> <br>
+        <input type="button" value="Edad" id="edad"> <br>
+        <input type="button" value="Equipo" id="equipo"> <br>-->
+        <!-------------------------------------------------------------------------------------------------------------------->
+        <b>Pokemon  <select id="pkm" style="border-radius: 10px; border-color:grey; border-width: 2px; background-color: white">
+                        <option>Bulbasur</option>
+                        <option>Charmander</option>
+                        <option>Squirtle</option>
+                        <option>Pikachu</option>
+                    </select> <input type="button" id="go" value="GO!" style="border-radius: 10px; border-color: grey; background-color: white;"><br>
+            Nombre<br>
+            <div id="nombre"></div><br>
+            Habilidades<br>
+            <div id="habilidades"></div><br>
+            Stats<br>
+            <div id="stats"></div><br>
+            Tipo<br>
+            <div id="tipo"></div><br>
+        </b>
+    </body>
+    <script>
+        fetch ('https://pokeapi.co/api/v2/pokemon/')
+            .then((response)=>response.json())
+                .then((data)=>console.log(data));
+        document.getElementById("nombre").innerHTML=data.result[1].name
+        //--------------------------------------------------------------------------------------------------------------------
+        /*document.getElementById("saludo").addEventListener("click", ()=>alert("Hola " + document.getElementById("nombre").value), false)
+        document.getElementById("edad").addEventListener("click",()=>alert("Tu edad en 2030 sera: " + (parseInt(document.getElementById("edadAhora").value)+8)), false)
+        document.getElementById("equipo").addEventListener("click", ()=>alert("Hola " + document.getElementById("nombre").value + " tu equipo es " + document.getElementById("nEquipo").value), false)*/
+        //--------------------------------------------------------------------------------------------------------------------
+        /*const persona = {
+            "nombre":window.prompt("Nombre"),
+            "edad":parseInt(window.prompt("Edad")),
+            "sexo":window.prompt("Sexo"),
+            "direccion":window.prompt("Dirección"),
+            "telefono":window.prompt("Teléfono"),
+        }
+        nAsignaturas=parseInt(window.prompt("Cuantas asignaturas tienes"))
+        let asignaturas = []
+        for (let i = 0; i < nAsignaturas; i++) {
+            let asignatura=window.prompt("Asignatura " + (i+1))
+            let nHoras=window.prompt("Horas que tiene la asignatura")
+            asignaturas.push(
+                {
+                    "asignatura":asignatura,
+                    "nHoras":nHoras
+                }
+            )
+        }
+        persona.asignaturas = asignaturas
+        console.log(persona)*/
+        //--------------------------------------------------------------------------------------------------------------------
+        /*const persona = {
+            "nombre":"chema",
+            "edad":21,
+            "sexo":"Hombre",
+            "asignaturas":[
+                {"nombre":"SGE", "curso":"DAM2", "horas":57},
+                {"nombre":"PMDP", "curso":"DAM2", "horas":46},
+                {"nombre":"PSP", "curso":"DAM2", "horas":57}
+            ],
+            "telefonos":[648752191, 654789123],
+            "coche":false
+        }
+        const dir = {
+            "calle":"Melocoton en Almibar",
+            "localidad":"Fruta",
+            "puerta":22,
+            "codpos":28475
+        }
+        const colegios = [
+            {"nombreIns":"IES Sandia",
+            "localidad":"Fruta"},
+            {"nombreIns":"IES Pimiento",
+            "localidad":"Vegetal"}
+        ]
+        persona.direccion = dir
+        persona.centros = colegios
+        console.log(persona)
+        const amigos = [
+            {"nombre":"Naruto",
+            "edad":16,
+            "equipo":"Konoha",
+            "trabaja":true,
+            "telefono":679457810,
+            "estudios": {
+                "familiaProf":"Ninja",
+                "nivel":"Genin",
+                "lugar":"Konoha"
+            }},
+            {"nombre":"Sasuke",
+            "edad":16,
+            "equipo":"Taka",
+            "trabaja":false,
+            "telefono":675497320,
+            "estudios": {
+                "familiaProf":"Ninja",
+                "nivel":"Genin",
+                "lugar":"Konoha"
+            }},
+            {"nombre":"Gaara",
+            "edad":16,
+            "equipo":"Sunagakura",
+            "trabaja":true,
+            "telefono":671495110,
+            "estudios": {
+                "familiaProf":"Ninja",
+                "nivel":"Kazekage",
+                "lugar":"Sunagakure"
+            }}
+        ]
+        console.log(amigos)
+        console.log(amigos[2].estudios.nivel)
+        persona.amigos = amigos
+        console.log(persona)
+        console.log(persona.amigos[2].estudios.nivel)
+        persona.amigos.pop()
+        console.log(persona)*/
+        //--------------------------------------------------------------------------------------------------------------------
+        /*
+        const chema = {
+            "nombre":"chema",
+            "edad":21,
+            idiomas: [
+                "eng",
+                "spa",
+                "jap"
+            ]
+        }
+        const materias = {
+                "AD":2,
+                "PSP":2,
+                "PMDM":2
+            }
+        texto = JSON.stringify(chema)
+        //console.log(texto)
+        //console.log(chema)
+        parse = JSON.parse(texto)
+        //console.log(parse)
+        console.log(`Soy ${chema.nombre} y tengo ${chema.edad} años`)
+        chema.asignaturas = materias
+        console.log(chema)*/
+    </script>
+</html>

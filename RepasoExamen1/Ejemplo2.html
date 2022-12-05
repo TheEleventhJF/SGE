@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" name="texto">
+    <input type="button" value="Arriba">
+    <input type="button" value="Debajo" id="debajo">
+    <ul id="lista"></ul>
+
+    <script>
+
+        var tags = document.getElementsByTagName("input")
+        tags[1].addEventListener("click", arriba, false)
+        tags[2].addEventListener("click", debajo, false)
+        var lista = document.getElementById("lista")
+
+        function arriba() {
+
+            var ul = document.createElement("ul")
+            var linea = document.createElement("li")
+            linea.innerText = tags[0].value
+
+            ul.appendChild(linea)
+            lista.insertBefore(ul, lista.firstChild)
+
+        }
+
+        function debajo() {
+
+            var ul = document.createElement("ul")
+            var linea = document.createElement("li")
+            linea.innerText = tags[0].value
+
+            ul.appendChild(linea)
+            lista.appendChild(ul)
+
+        }
+
+    </script>
+
+</body>
+</html>

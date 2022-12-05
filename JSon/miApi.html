@@ -1,0 +1,30 @@
+<!--https://kitsu.docs.apiary.io/#introduction/json:api-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Animes</h1>
+        <select>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+        </select>
+    </body>
+    <script>
+        fetch('https://kitsu.io/api/edge/anime')
+            .then((response) => response.json())
+                .then((data) => console.log(data));
+    </script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body style="background-color: grey;">
+    <div>
+        <div style="display: flex; justify-content: center;">
+            <table class="table table-dark table-striped" style="width: 75%;" id="tablaP">
+                <tr>
+                    <td colspan="3"><h1 style="text-align: center;">Usuario</h1></td>
+                </tr>
+                <tr>
+                    <td>ID</td>
+                    <td>Nombre</td>
+                    <td>Salario</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        //https://cors-anywhere.herokuapp.com/corsdemo
+        const cors = 'https://cors-anywhere.herokuapp.com/'
+        const apiSGE = 'https://nodejs-mysql-restapi-production-d8bd.up.railway.app/api/employees'
+
+        console.log(cors+apiSGE)
+
+        fetch (cors+apiSGE)
+                .then (resp=>resp.json())
+                .then((data)=>console.log(data))
+
+        var encontrado=false
+        const link = new URL(window.location.href)
+        const idE= `${link.searchParams.get("id")}`
+        fetch (cors+apiSGE)
+            .then ((resp)=>resp.json())
+            .then((data)=>{
+                for (let i = 0; i < data.length || (encontrado=false); i++) {
+                    if (data[i].id==idE){
+                        let linea = document.getElementById('tablaP').insertRow(-1)
+                        linea.insertCell(0).innerHTML=data[i].id
+                        linea.insertCell(1).innerHTML=data[i].name
+                        linea.insertCell(2).innerHTML=data[i].salary
+                        encontrado
+                    }
+                }
+            })
+    </script>
+</body>
+</html>

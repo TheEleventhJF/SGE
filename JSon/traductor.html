@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Traductor</h1>
+        <select id="seleccion1">
+            <option>Español</option>
+            <option>Ingles</option>
+            <option>Aleman</option>
+        </select><br>
+        <!--<input type="text" id="idioma1" style="width: 350px;"><br>-->
+        <textarea id="idioma1" style="width: 350px; height: 150px;"></textarea><br>
+        <input type="button" id="traducir" value="Traducir">
+        <input type="button" id="detectar" value="Detectar Idioma">
+        <input type="button" id="automatico" value="Traducir automaticamente"><br>
+        <select id="seleccion2">
+            <option id="es">Español</option>
+            <option id="en">Ingles</option>
+            <option id="de">Aleman</option>
+        </select><br>
+        <!--<input type="text" id="idioma2" style="width: 350px;">-->
+        <textarea id="idioma2" style="width: 350px; height: 150px;"></textarea>
+    </body>
+    <script>
+        //Detectar Idioma
+        /*const encodedParamsDetectar = new URLSearchParams();
+        encodedParamsDetectar.append("q", "English is hard, but detectably so");
+
+        const optionsDetectar = {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/x-www-form-urlencoded',
+                'Accept-Encoding': 'application/gzip',
+                'X-RapidAPI-Key': '2e00e8ba65msh22485d1230bf45dp1368b9jsnc06aedf242ca',
+                'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com'
+            },
+            body: encodedParamsDetectar
+        };
+
+        fetch('https://google-translate1.p.rapidapi.com/language/translate/v2/detect', optionsDetectar)
+            .then(response => response.json())
+                .then(response => console.log(response))
+                    .catch(err => console.error(err));
+        */
+        //Idiomas
+        /*const optionsIdiomas = {
+	        method: 'GET',
+	        headers: {
+                'Accept-Encoding': 'application/gzip',
+                'X-RapidAPI-Key': '2e00e8ba65msh22485d1230bf45dp1368b9jsnc06aedf242ca',
+                'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com'
+	        }
+        };
+
+        fetch('https://google-translate1.p.rapidapi.com/language/translate/v2/languages', optionsIdiomas)
+            .then(response => response.json())
+                .then(response => console.log(response))
+                    .catch(err => console.error(err));
+        */
+    
+        document.getElementById("traducir").addEventListener("click", traducir, false)
+        document.getElementById("detectar").addEventListener("click", detectar, false)
+        document.getElementById("automatico").addEventListener("click", automatico, false)
+        
+        //Traducir
+        function traducir() {
+            
+            const encodedParamsTraducir = new URLSearchParams();
+
+            const optionsTraducir = {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/x-www-form-urlencoded',
+                    'Accept-Encoding': 'application/gzip',
+                    'X-RapidAPI-Key': '2e00e8ba65msh22485d1230bf45dp1368b9jsnc06aedf242ca',
+                    'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com'
+                },
+                body: encodedParamsTraducir
+            };
+
+            var select1
+            if (document.getElementById("seleccion1").value=="Español") select1 = "es"
+            else if (document.getElementById("seleccion1").value=="Ingles") select1 = "en"
+            else if (document.getElementById("seleccion1").value=="Aleman") select1 = "de"
+
+            var select2
+            if (document.getElementById("seleccion2").value=="Español") select2 = "es"
+            else if (document.getElementById("seleccion2").value=="Ingles") select2 = "en"
+            else if (document.getElementById("seleccion2").value=="Aleman") select2 = "de"
+
+            var txt = document.getElementById("idioma1").value
+
+            encodedParamsTraducir.append("q", txt);
+            encodedParamsTraducir.append("target", select2);
+            encodedParamsTraducir.append("source", select1);
+
+            fetch('https://google-translate1.p.rapidapi.com/language/translate/v2', optionsTraducir)
+                .then(response => response.json())
+                .then(response => document.getElementById("idioma2").value=response.data.translations[0].translatedText);
+        }
+        function detectar() {
+
+        }
+        function automatico() {
+
+        }
+    </script>
+</html>

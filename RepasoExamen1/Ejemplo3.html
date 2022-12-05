@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="texto1" placeholder="Nombre">
+    <input type="text" name="texto2" placeholder="Apellido">
+    <br>
+    <input type="checkbox" value="Rojo">Rojo
+    <input type="checkbox" value="Azul">Azul
+    <input type="checkbox" value="Verde">Verde
+    <input type="button" value="Enviar">
+
+    <script>
+
+        let validado = true
+        var tags = document.getElementsByTagName("input")
+        tags[5].addEventListener("click", validar, false)
+
+        function validar() {
+
+            if (tags[0].value.length<1 || tags[1].value.length<1) {
+
+                validado=false
+                alert("Los campos de nombre y apellidos son obligatorios")
+
+            }
+
+            if (tags[0].value.length<5 || tags[0].value.length>40) {
+
+                validado=false
+                alert("El nombre debe de tener entre 5 y 40 caracteres")
+
+            }
+
+            if (!tags[2].checked && !tags[3].checked && !tags[4].checked) {
+                
+                validado=false
+                alert("Tienes que seleccionar al menos un color")
+
+            }
+            
+            if (validado) alert("Formulario enviado correctamente")
+
+        }
+
+    </script>
+
+</body>
+</html>

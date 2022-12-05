@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Pokemon">
+    <input type="text" placeholder="Type">
+    <input type="button" value="Crear">
+
+    <script>
+
+        
+        fetch ("http://pokeapi.com/pokemon/")
+            .then((result)=>resp.json())
+            .then((data)=>{
+
+                for (let i = 0; i < data.length; i++) {
+
+                    let linea = document.getElementById("tabla").insertRow(-1)
+                    linea.insertCell(0).innerHTML=data[i].id
+                    linea.insertCell(1).innerHTML=data[i].pokemon
+                    linea.insertCell(2).innerHTML=data[i].tipo
+                    
+                }
+
+            })
+
+        var tags = document.getElementsByTagName("input")
+        tags[2].addEventListener("click", anyadir, false)
+
+        function anyadir() {
+
+            dato = {
+                pokemon:tags[0].value,
+                tipo:tags[1].value
+            }
+
+            const option = {
+                method : "POST",
+                body:JSON.stringify(dato),
+                headers : {
+                    'Content-type':'application/json'
+                }
+            }
+
+            fetch ("http://pokeapi.com/pokemon/", option)
+                .then((result)=>result.json())
+
+        }
+
+    </script>
+</body>
+</html>
